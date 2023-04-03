@@ -1,0 +1,16 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://b0yk04v3hbqud"
+path="res://.godot/imported/minecraft.fnt-ca4f934640defe02efd7277c837b4423.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/minecraft.fnt"
+dest_files=["res://.godot/imported/minecraft.fnt-ca4f934640defe02efd7277c837b4423.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true

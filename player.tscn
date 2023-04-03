@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1fubrpvkygdl"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_hmw28"]
+[ext_resource type="Texture2D" uid="uid://b1mm13spge3vr" path="res://assets/images/Clean-Retro-Lines-Player-Plain.png" id="2_n3kq3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqofc"]
+atlas = ExtResource("2_n3kq3")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnaea"]
+atlas = ExtResource("2_n3kq3")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0scs4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqofc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnaea")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qns35"]
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_hmw28")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0scs4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qns35")
