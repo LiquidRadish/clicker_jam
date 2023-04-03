@@ -51,4 +51,6 @@ Game Ideas:
 		
 	Theme: space ship destablized, you're trying to stabilize it by pressing the button
 		OR: you're alien trying to destablize ship by attacking generator in center
+		
+	Once you get to the button, spam click/space to press/damage it before gravity flips
 	
