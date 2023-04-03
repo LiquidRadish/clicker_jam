@@ -15,6 +15,25 @@ TODO:
 		- Air movement is weird at high speeds
 
 '''
+
+func _process(delta: float) -> void:
+	update_animation()
+	
+
+func update_animation():
+	
+	if velocity.x > 0:
+		$AnimatedSprite2D.flip_h = false
+	elif velocity.x < 0:
+		$AnimatedSprite2D.flip_h = true
+	
+	if is_on_floor() and velocity.x == 0:
+		$AnimatedSprite2D.play("idle_right")
+	elif is_on_floor():
+		$AnimatedSprite2D.play("walk_right")
+	else:
+		$AnimatedSprite2D.play("jump_right")
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
