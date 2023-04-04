@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c380t2rl6jqdp"]
+
+[ext_resource type="Script" path="res://ClickLabel.gd" id="1_pgaxt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1q8fg"]
+font_size = 30
+
+[node name="Interface" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_right = 158.0
+offset_bottom = 51.0
+text = "10 Clicks"
+label_settings = SubResource("LabelSettings_1q8fg")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_pgaxt")
