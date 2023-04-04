@@ -5,4 +5,3 @@ func _ready():
 	
 func _button_pressed():
 	GlobalVariables.click_count +=1;
-	print(GlobalVariables.click_count)
