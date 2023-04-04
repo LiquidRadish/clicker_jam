@@ -1,7 +1,15 @@
-[gd_scene load_steps=21 format=3 uid="uid://d1fubrpvkygdl"]
+[gd_scene load_steps=23 format=3 uid="uid://d1fubrpvkygdl"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_hmw28"]
 [ext_resource type="Texture2D" uid="uid://goccjh14gqws" path="res://assets/images/Alien.png" id="2_4b33g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_301f5"]
+atlas = ExtResource("2_4b33g")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65wji"]
+atlas = ExtResource("2_4b33g")
+region = Rect2(48, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u8130"]
 atlas = ExtResource("2_4b33g")
@@ -69,6 +77,17 @@ region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nwqv0"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_301f5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65wji")
+}],
+"loop": true,
+"name": &"fall_right",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u8130")
@@ -156,7 +175,7 @@ script = ExtResource("1_hmw28")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nwqv0")
-animation = &"idle_left"
+animation = &"fall_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qns35")

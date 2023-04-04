@@ -3,6 +3,7 @@ extends CharacterBody2D
 var speed = 10.0
 const MAX_SPEED = 100
 var jumpVelocity = -300.0
+var isInScript = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -21,6 +22,9 @@ func _process(delta: float) -> void:
 	
 
 func update_animation():
+	if isInScript: 
+		$AnimatedSprite2D.play("fall_right")
+		return
 	
 	if velocity.x > 0:
 		$AnimatedSprite2D.flip_h = false
@@ -35,6 +39,8 @@ func update_animation():
 		$AnimatedSprite2D.play("jump_right")
 
 func _physics_process(delta):
+	if isInScript:
+		return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
