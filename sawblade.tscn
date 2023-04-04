@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjmxe4wtpgjt"]
+
+[ext_resource type="Texture2D" uid="uid://cgiyki656aqas" path="res://assets/images/Sawblade.png" id="1_6x6ny"]
+[ext_resource type="Script" path="res://sawblade.gd" id="1_slgby"]
+
+[sub_resource type="Animation" id="Animation_58tgi"]
+resource_name = "SawDefault"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_02pyi"]
+_data = {
+"SawDefault": SubResource("Animation_58tgi")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gd3ns"]
+animation = &"SawDefault"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ugjm1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_opfgi"]
+states/SawDefault/node = SubResource("AnimationNodeAnimation_gd3ns")
+states/SawDefault/position = Vector2(368, 102)
+states/Start/position = Vector2(252, 100)
+transitions = ["Start", "SawDefault", SubResource("AnimationNodeStateMachineTransition_ugjm1")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_kgg5e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i2rhv"]
+
+[node name="Sawblade" type="AnimatableBody2D"]
+script = ExtResource("1_slgby")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6x6ny")
+hframes = 3
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_02pyi")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_opfgi")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_kgg5e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("CircleShape2D_i2rhv")
