@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c7kpwcqtpw414"]
+[gd_scene load_steps=19 format=3 uid="uid://c7kpwcqtpw414"]
 
 [ext_resource type="PackedScene" uid="uid://d1fubrpvkygdl" path="res://player.tscn" id="1_f3jax"]
 [ext_resource type="Texture2D" uid="uid://fr4muqsed17u" path="res://assets/images/box.png" id="2_w02ra"]
@@ -8,8 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ci7jhroyqq15p" path="res://assets/images/PressedButton.png" id="4_orp7f"]
 [ext_resource type="PackedScene" uid="uid://c380t2rl6jqdp" path="res://interface.tscn" id="6_fh1o6"]
 [ext_resource type="Texture2D" uid="uid://cgiyki656aqas" path="res://assets/images/Sawblade.png" id="7_ttw7g"]
-[ext_resource type="Texture2D" uid="uid://d2lo5mx1vgqfq" path="res://icon.svg" id="9_3ob4r"]
-[ext_resource type="Script" path="res://NextLevel.gd" id="10_77exv"]
+[ext_resource type="PackedScene" uid="uid://fsigjv0u5jsn" path="res://next_level_obj.tscn" id="9_meiak"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wugoe"]
 texture = ExtResource("2_w02ra")
@@ -174,9 +173,6 @@ transitions = ["Start", "SawDefault", SubResource("AnimationNodeStateMachineTran
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7vi87"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4xxm"]
-size = Vector2(132.996, 126.491)
-
 [node name="level" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_f3jax")]
@@ -214,6 +210,7 @@ script = ExtResource("3_8hxwb")
 position = Vector2(235, 291)
 texture = ExtResource("7_ttw7g")
 hframes = 3
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sawblade"]
 libraries = {
@@ -234,17 +231,4 @@ zoom = Vector2(2, 2)
 
 [node name="Interface" parent="CanvasLayer" instance=ExtResource("6_fh1o6")]
 
-[node name="NextLevel" type="Sprite2D" parent="."]
-position = Vector2(437, 442)
-scale = Vector2(0.180456, 0.189737)
-texture = ExtResource("9_3ob4r")
-script = ExtResource("10_77exv")
-
-[node name="Hitbox" type="Area2D" parent="NextLevel"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel/Hitbox"]
-position = Vector2(0, -0.000244141)
-shape = SubResource("RectangleShape2D_j4xxm")
-
-[connection signal="body_entered" from="NextLevel/Hitbox" to="NextLevel" method="_on_hitbox_body_entered"]
-[connection signal="body_exited" from="NextLevel/Hitbox" to="NextLevel" method="_on_hitbox_body_exited"]
+[node name="NextLevel" parent="." instance=ExtResource("9_meiak")]
