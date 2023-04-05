@@ -54,3 +54,13 @@ Game Ideas:
 		
 	Once you get to the button, spam click/space to press/damage it before gravity flips
 	
+
+Sounds:
+	Coin pickup
+	jump
+	walk/run
+	button click
+	sawblade
+	gravity change
+	teleport/level change
+	countdown/warning sound
