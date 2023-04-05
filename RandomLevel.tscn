@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsrgmctpq4621"]
+
+[ext_resource type="PackedScene" uid="uid://d1fubrpvkygdl" path="res://player.tscn" id="1_2h4vy"]
+[ext_resource type="PackedScene" uid="uid://co6rbtp4ty8in" path="res://random_map.tscn" id="1_pkfgq"]
+
+[node name="RandomLevel" type="Node2D"]
+
+[node name="RandomMap" parent="." instance=ExtResource("1_pkfgq")]
+
+[node name="player" parent="." instance=ExtResource("1_2h4vy")]
+position = Vector2(250, 441)
