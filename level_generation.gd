@@ -1,6 +1,6 @@
 extends TileMap
 
-@export var numPlatforms: int = 30
+@export var numPlatforms: int = 50
 @export var numSawblades: int = 15
 @export var numCoins: int = 30
 
