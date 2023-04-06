@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfgq4rapgku7y"]
+
+[ext_resource type="Texture2D" uid="uid://1krl12bo1keq" path="res://assets/images/Coin.png" id="1_4j20h"]
+[ext_resource type="Script" path="res://shop_object.gd" id="2_64jyl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrb8d"]
+size = Vector2(8, 8)
+
+[sub_resource type="Animation" id="Animation_7i5ea"]
+resource_name = "Coin Rotate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cfyge"]
+_data = {
+"Coin Rotate": SubResource("Animation_7i5ea")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4a5kv"]
+animation = &"Coin Rotate"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eaaor"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jc0mw"]
+"states/Coin Rotate/node" = SubResource("AnimationNodeAnimation_4a5kv")
+"states/Coin Rotate/position" = Vector2(364, 100)
+states/Start/position = Vector2(195, 100)
+transitions = ["Start", "Coin Rotate", SubResource("AnimationNodeStateMachineTransition_eaaor")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_k0sj5"]
+
+[node name="ShopObject" type="Sprite2D"]
+texture = ExtResource("1_4j20h")
+hframes = 6
+frame = 2
+script = ExtResource("2_64jyl")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_mrb8d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cfyge")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_jc0mw")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_k0sj5")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

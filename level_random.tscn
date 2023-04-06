@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c1p04sgvvmgto" path="res://button.tscn" id="5_evn73"]
 [ext_resource type="PackedScene" uid="uid://cjmxe4wtpgjt" path="res://sawblade.tscn" id="6_ino8m"]
 [ext_resource type="PackedScene" uid="uid://fsigjv0u5jsn" path="res://next_level_obj.tscn" id="7_vft8d"]
-[ext_resource type="PackedScene" path="res://interface.tscn" id="8_ht4a4"]
+[ext_resource type="PackedScene" uid="uid://c380t2rl6jqdp" path="res://interface.tscn" id="8_ht4a4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wugoe"]
 texture = ExtResource("3_tavh3")

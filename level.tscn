@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bih6xbtp1s327" path="res://assets/images/TileSetTest.png" id="3_ef5to"]
 [ext_resource type="PackedScene" uid="uid://c1p04sgvvmgto" path="res://button.tscn" id="5_bq66s"]
 [ext_resource type="PackedScene" uid="uid://c380t2rl6jqdp" path="res://interface.tscn" id="6_fh1o6"]
-[ext_resource type="PackedScene" path="res://next_level_obj.tscn" id="8_fmqsg"]
+[ext_resource type="PackedScene" uid="uid://fsigjv0u5jsn" path="res://next_level_obj.tscn" id="8_fmqsg"]
 [ext_resource type="PackedScene" uid="uid://cjmxe4wtpgjt" path="res://sawblade.tscn" id="8_fo2sc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wugoe"]
