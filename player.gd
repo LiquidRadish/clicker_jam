@@ -58,7 +58,7 @@ func _physics_process(delta):
 
 	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jumpVelocity
+		velocity.y = jumpVelocity - GlobalVariables.jump_speed
 
 	# Right
 	if Input.is_action_pressed("move_right"):

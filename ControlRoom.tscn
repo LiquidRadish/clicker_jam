@@ -162,6 +162,7 @@ position = Vector2(104, 107)
 [node name="TextureButton" type="TextureButton" parent="Button"]
 offset_right = 32.0
 offset_bottom = 32.0
+focus_mode = 0
 action_mode = 0
 texture_normal = ExtResource("4_pppub")
 texture_pressed = ExtResource("5_8wc1q")
@@ -170,6 +171,7 @@ script = ExtResource("6_1uqp1")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Interface" parent="CanvasLayer" instance=ExtResource("7_6pkdw")]
+mouse_filter = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
