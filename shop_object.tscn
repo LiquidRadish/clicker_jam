@@ -6,22 +6,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mrb8d"]
 size = Vector2(8, 8)
 
-[sub_resource type="Animation" id="Animation_7i5ea"]
-resource_name = "Coin Rotate"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 5]
-}
-
 [sub_resource type="Animation" id="Animation_l4i60"]
 resource_name = "Coin Pickup"
 length = 0.6
@@ -36,6 +20,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_7i5ea"]
+resource_name = "Coin Rotate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 5]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cfyge"]
@@ -68,7 +68,7 @@ transitions = ["Start", "Coin Rotate", SubResource("AnimationNodeStateMachineTra
 [node name="ShopObject" type="Sprite2D"]
 texture = ExtResource("1_4j20h")
 hframes = 6
-frame = 5
+frame = 2
 script = ExtResource("2_64jyl")
 color = Color(1, 1, 1, 1)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4dn4eg1biewj"]
+[gd_scene load_steps=12 format=3 uid="uid://b4dn4eg1biewj"]
 
 [ext_resource type="Script" path="res://ControlRoom.gd" id="1_8u3vg"]
 [ext_resource type="Texture2D" uid="uid://fr4muqsed17u" path="res://assets/images/box.png" id="1_l88nm"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://ci7jhroyqq15p" path="res://assets/images/PressedButton.png" id="5_8wc1q"]
 [ext_resource type="Script" path="res://Button.gd" id="6_1uqp1"]
 [ext_resource type="PackedScene" uid="uid://c380t2rl6jqdp" path="res://interface.tscn" id="7_6pkdw"]
-[ext_resource type="PackedScene" uid="uid://cfgq4rapgku7y" path="res://shop_object.tscn" id="8_tunu3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wugoe"]
 texture = ExtResource("1_l88nm")
@@ -178,9 +177,3 @@ mouse_filter = 2
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 zoom = Vector2(2, 2)
-
-[node name="ShopObject" parent="." node_paths=PackedStringArray("interface") instance=ExtResource("8_tunu3")]
-position = Vector2(118, 165)
-frame = 2
-interface = NodePath("../CanvasLayer/Interface")
-color = Color(0, 1, 1, 1)
