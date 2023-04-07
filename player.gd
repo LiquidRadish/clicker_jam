@@ -62,11 +62,11 @@ func _physics_process(delta):
 
 	# Right
 	if Input.is_action_pressed("move_right"):
-		velocity.x = min(MAX_SPEED, velocity.x + speed)
+		velocity.x = min(MAX_SPEED + GlobalVariables.move_speed, velocity.x + speed)
 		
 	# Left
 	if Input.is_action_pressed("move_left"):
-		velocity.x = max(-1 * MAX_SPEED, velocity.x - speed)
+		velocity.x = max(-1 * MAX_SPEED - GlobalVariables.move_speed, velocity.x - speed)
 	
 	# Reset horizontal velocity when no key pressed 
 	if not Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left"):

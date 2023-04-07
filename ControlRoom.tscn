@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4dn4eg1biewj"]
+[gd_scene load_steps=13 format=3 uid="uid://b4dn4eg1biewj"]
 
+[ext_resource type="Script" path="res://ControlRoom.gd" id="1_8u3vg"]
 [ext_resource type="Texture2D" uid="uid://fr4muqsed17u" path="res://assets/images/box.png" id="1_l88nm"]
 [ext_resource type="Texture2D" uid="uid://bih6xbtp1s327" path="res://assets/images/TileSetTest.png" id="2_8oycn"]
 [ext_resource type="PackedScene" uid="uid://d1fubrpvkygdl" path="res://player.tscn" id="3_28dkg"]
@@ -137,6 +138,7 @@ sources/0 = SubResource("TileSetAtlasSource_wugoe")
 sources/1 = SubResource("TileSetAtlasSource_5bbb4")
 
 [node name="ControlRoom" type="Node2D"]
+script = ExtResource("1_8u3vg")
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -10
@@ -179,4 +181,6 @@ zoom = Vector2(2, 2)
 
 [node name="ShopObject" parent="." node_paths=PackedStringArray("interface") instance=ExtResource("8_tunu3")]
 position = Vector2(118, 165)
+frame = 2
 interface = NodePath("../CanvasLayer/Interface")
+color = Color(0, 1, 1, 1)

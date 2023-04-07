@@ -1,12 +1,23 @@
 extends Sprite2D
 
 @export var interface: Control
-@export var cost = 3
-@export var nameOfUpgrade = "Upgrade Test"
+@export var cost: int = 3
+@export var nameOfUpgrade: String = "Upgrade Test"
+@export var color:Color
+# variable to change once upgrade is purchased, defined by ints
+# 0 = jump height
+# 1 = move speed
+@export var var_to_change: int = 0
+
+@onready var animation_tree = $AnimationTree
+@onready var state_machine = animation_tree.get("parameters/playback")
 
 
 var destroying = 0;
 var entered = false
+
+func _ready():
+	modulate = color
 
 func _on_hitbox_body_entered(body):
 	entered = true
@@ -22,18 +33,24 @@ func _on_hitbox_body_exited(body):
 		label.text = ""
 	
 func _process(delta):
-	if destroying != 0:
-		position.y += -0.5
-		destroying+=1
-		if destroying >= 20:
-			queue_free()
-	elif entered:
+	
+	if destroying == 0 && entered:
 		var label:Label = interface.get_child(1)
 		if label != null && Input.is_action_just_pressed("ui_accept"):
 			if GlobalVariables.click_count >= cost:
+				texture = preload("res://assets/images/CoinPickup.png")
+				state_machine.travel("Coin Pickup")
 				GlobalVariables.click_count-= cost
-				GlobalVariables.jump_speed += 20
+				match var_to_change:
+					0:
+						GlobalVariables.jump_speed += 20
+					1:
+						GlobalVariables.move_speed += 20
 				label.text = ""
 				destroying = 1
 			else:
 				label.text = "Too expensive"
+
+
+func _on_animation_tree_animation_finished(anim_name):
+	if anim_name == "Coin Pickup": queue_free()
